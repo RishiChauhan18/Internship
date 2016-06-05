@@ -1,0 +1,50 @@
+body {
+  padding: 5px;
+  background-color: #2e6da4;
+  background-repeat: no-repeat;
+  /*border: 1px solid;*/
+}
+
+div.frm {
+  padding-top: 10px;
+}
+
+div.my-form {
+    background-color: white;
+    padding: 20px;
+}
+
+button {
+  width: 80px !important;
+}
+
+form {
+  padding-top: 10px;
+}
+
+/*form.show_all {
+  padding-top: 90px;
+}*/
+
+fieldset {
+  padding: 5px;
+}
+
+span.error {
+  color: red;
+  padding: 5px;
+}
+
+table, td, th {
+  border: 1px solid;
+  border-collapse: collapse;
+  width: auto;
+  padding: 5px;
+  height: auto;
+}
+/*
+table {
+  border: collapse;
+  width: auto;
+  height: auto;
+}*/

@@ -1,0 +1,142 @@
+<form action= "<?php echo "$redirect"; ?>" method="post">
+  <fieldset>
+    <legend>Register</legend>
+    <p>
+      <span>*required</span>
+    </p>
+    <div class="input-group">
+      <!-- <span class="input-group-addon" id="basic-addon1">Name</span> -->
+      <input type="text" name="name" class="form-control" placeholder="Name" aria-describedby="basic-addon1" required><span>*</span><br><br>
+    </div>
+  <!-- <label for="name">Name: </label><input type="text" name="name" id="name" required><span>*</span><br><br> -->
+
+  <div class="input-group">
+    <!-- <span class="input-group-addon" id="basic-addon1">Name</span> -->
+    <input type="tel" class="form-control" name"phone_no" maxlength="10" placeholder="Phone Number" aria-describedby="basic-addon1" required><span>*</span><br><br>
+  </div>
+  <!-- <label for="phone_no">Phone Number: </label> <input type="tel" name="phone_no" maxlength="10" id="phone_no" required><span>*</span><br><br> -->
+
+  <div class="input-group">
+    <!-- <span class="input-group-addon" id="basic-addon1">Name</span> -->
+    <input type="number" name="age" min="0" max="100" class="form-control" placeholder="Age" aria-describedby="basic-addon1"><span>*</span><br><br>
+  </div>
+  <!-- <label for="age">Age: </label><input type="number" name="age"  id="age" max="100"  min="0"><br><br> -->
+  <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+  </fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+<form action="details.php" method="post" class="show_all">
+  <fieldset>
+    <legend>Show All</legend>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary" name="show_all">Show All</button>
+      </div>
+    </div>
+    <!-- <input type="submit" class="btn btn-primary" name="show_all" value="Show all"> -->
+
+  </fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form action="selected.php" method="post" class="show_details">
+  <fieldset>
+    <legend> Show details of: </legend>
+
+    <div class="input-group">
+      <!-- <span class="input-group-addon" id="basic-addon1">Name</span> -->
+      <input type="number" name="get_id" min="0" class="form-control" placeholder="ID" aria-describedby="basic-addon1" required><span>*</span><br><br>
+    </div>
+    <!-- <label for="get_id">ID: </label><input type="number" name="get_id" min="0" id="get_id"><br><br> -->
+
+    <input type="submit" class="btn btn-primary" name="select" value="Show Details">
+
+  </fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form action= "edit.php" method="post">
+  <fieldset>
+    <legend> Update Details </legend>
+    <p>
+      <span>*required</span>
+    </p>
+    ID: <input type="number" name="id" value= "<?php echo $_REQUEST["id"]; ?>" required><span>*</span><br><br>
+  Name: <input type="text" name="name" value="<?php echo $name_edit; ?>" required><span>*</span><br><br>
+  Phone No: <input type="tel" name="phone_no" maxlength="10" value="<?php echo $phone_no_edit; ?>" required><span>*<?php echo "$phone_noErr"; ?></span><br><br>
+  Age: <input type="number" name="age" max="100" value="<?php echo $age_edit; ?>"><br><br>
+  <input type="submit" name="submit" value="Update">
+  </fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <form action= "delete.php" method="post">
+      <fieldset>
+        <legend> Update Details </legend>
+        <p>
+          <span>*required</span>
+        </p>
+
+        ID: <input type="number" name="id" value= "<?php echo $_REQUEST["id"]; ?>" required><span>*</span><br><br>
+
+      <input type="submit" name="submit" value="Delete">
+      </fieldset>
+    </form>
