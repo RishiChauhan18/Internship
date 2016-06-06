@@ -40,8 +40,8 @@
 
     <?php
 
-    include 'F:\xampp\htdocs\myphp\form\php\login_check.php';
-    include 'F:\xampp\htdocs\myphp\form\php\db2.php';
+    include 'F:\xampp\htdocs\myphp\Internship\form\php\login_check.php';
+    include 'F:\xampp\htdocs\myphp\Internship\form\php\db2.php';
 
     $page = $_REQUEST["page"];
     $offset = (($page-1)*3);

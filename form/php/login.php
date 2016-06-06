@@ -33,7 +33,7 @@
 
 <?php
 
-  include 'F:\xampp\htdocs\myphp\form\php\db1.php';
+  include 'F:\xampp\htdocs\myphp\Internship\form\php\db1.php';
 
   //funtion to test input
   function test_input($data)

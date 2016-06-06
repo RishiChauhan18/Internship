@@ -41,8 +41,8 @@
 
     <?php
 
-    include 'F:\xampp\htdocs\myphp\form\php\login_check.php';
-    include 'F:\xampp\htdocs\myphp\form\php\db2.php';
+    include 'F:\xampp\htdocs\myphp\Internship\form\php\login_check.php';
+    include 'F:\xampp\htdocs\myphp\Internship\form\php\db2.php';
 
     $get_id = $_POST["get_id"];
 

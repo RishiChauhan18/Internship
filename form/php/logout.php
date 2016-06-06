@@ -32,8 +32,8 @@
 
 <?php
 
-  include 'F:\xampp\htdocs\myphp\form\php\login_check.php';
-  include 'F:\xampp\htdocs\myphp\form\php\db1.php';
+  include 'F:\xampp\htdocs\myphp\Internship\form\php\login_check.php';
+  include 'F:\xampp\htdocs\myphp\Internship\form\php\db1.php';
 
   echo "Logging out....";
   session_destroy();

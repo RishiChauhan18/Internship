@@ -30,7 +30,7 @@
 
 <?php
 
-  include 'F:\xampp\htdocs\myphp\form\php\db1.php';
+  include 'F:\xampp\htdocs\myphp\Internship\form\php\db1.php';
 
     // validating form
     $username = $password = $confirm_pass = $cp_error= "";

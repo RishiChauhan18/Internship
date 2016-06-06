@@ -34,7 +34,7 @@
 
   <?php
 
-    include 'F:\xampp\htdocs\myphp\form\php\login_check.php';
+    include 'F:\xampp\htdocs\myphp\Internship\form\php\login_check.php';
     // validating form
     $name = $phone_no = $age = $redirect = "";
     $nameErr = $phone_noErr = $ageErr ="";
