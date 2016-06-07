@@ -29,7 +29,7 @@
         </div>
 
         <div class="col-sm-4">
-          <div class="my-form">
+          <div class="form_inner">
 
             <div dir="rtl">
               <span>Welcome <?php echo $_SESSION["username"]; ?></span>

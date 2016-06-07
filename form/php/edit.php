@@ -23,7 +23,7 @@
 
 <div class="container-fluid">
 
-  <div class="frm">
+  <div class="form_outer">
 
     <div class="row">
       <div class="col-sm-12">
@@ -32,7 +32,7 @@
         </div>
 
         <div class="col-sm-4">
-          <div class="my-form">
+          <div class="form_inner">
 
             <div dir="rtl">
               <span>Welcome <?php echo $_SESSION["username"]; ?></span>

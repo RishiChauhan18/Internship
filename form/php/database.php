@@ -15,13 +15,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script scr="javascript\check.js"></script>
     <meta charset="utf-8">
     <title> Database </title>
   </head>
   <body>
     <div class="container-fluid">
 
-      <div class="frm">
+      <div class="form_outer">
 
           <div class="row">
             <div class="col-sm-4">
@@ -29,7 +30,7 @@
             </div>
 
             <div class="col-sm-4">
-              <div class="my-form">
+              <div class="form_inner">
 
                 <div dir="rtl">
                   <span>Welcome <?php echo $_SESSION["username"]; ?></span>

@@ -15,7 +15,7 @@
   <body>
   <div class="container-fluid">
 
-  <div class="frm">
+  <div class="form_outer">
 
       <div class="row">
         <div class="col-sm-4">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="col-sm-4">
-          <div class="my-form">
+          <div class="form_inner">
 
   <?php
 

@@ -1,16 +1,20 @@
 body {
   padding: 5px;
-  background-color: #2e6da4;
   background-repeat: no-repeat;
   /*border: 1px solid;*/
 }
 
-div.frm {
+#dropdownMenu1 {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+div.form_outer {
   padding-top: 10px;
 }
 
-div.my-form {
-    background-color: white;
+div.form_inner {
+    background-color: #cce6ff;
     padding: 20px;
 }
 
