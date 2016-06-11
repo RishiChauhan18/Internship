@@ -1,12 +1,66 @@
+#welImg {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+}
+
+#bs-example-navbar-collapse-1 {
+  margin-top: 30px;
+}
+
+#searchForm {
+  margin-top: 30px;
+}
+
+#pp {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    margin-top: 25px;
+}
+
+#search {
+  width: 136px;
+}
+
+#searchButton {
+  /*margin-top: 5px;*/
+}
+
+legend.welcome {
+  padding-top: 20px;
+}
+
+div.header_menu{
+}
+
+button.btn-primary {
+  width: auto !important;
+}
+
+div.side_menu {
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
 body {
   padding: 5px;
   background-repeat: no-repeat;
   /*border: 1px solid;*/
 }
 
+p.signup {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
 #dropdownMenu1 {
-  width: 40px !important;
-  height: 40px !important;
+  align-items: center;
+}
+
+img.drop_down {
+  width: inherit;
+  height: inherit;
 }
 
 div.form_outer {
@@ -14,8 +68,9 @@ div.form_outer {
 }
 
 div.form_inner {
-    background-color: #cce6ff;
-    padding: 20px;
+  margin-top: 55px;
+  background-color: #f8f8f8;
+  padding: 10px 20px;
 }
 
 button {
@@ -39,16 +94,16 @@ span.error {
   padding: 5px;
 }
 
-table, td, th {
+/*table, td, th {
   border: 1px solid;
   border-collapse: collapse;
   width: auto;
   padding: 5px;
   height: auto;
-}
-/*
+}*/
+
 table {
   border: collapse;
   width: auto;
   height: auto;
-}*/
+}

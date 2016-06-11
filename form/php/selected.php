@@ -16,6 +16,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../css/navbar-fixed-side.css" rel="stylesheet" />
+    <script src="..\javascript\check.js" charset="utf-8"></script>
     <meta charset="utf-8">
     <title> Client Details</title>
   </head>
@@ -27,11 +29,11 @@
 
       <div class="row">
         <div class="col-sm-12">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <!-- empty column -->
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-8">
           <div class="form_inner">
 
             <div dir="rtl">
@@ -60,15 +62,11 @@
       echo "<br> No such entry in database.".  $conn->error;
     }
 
-    echo "<br><a href='form.php'> Home </a>";
+    echo "<br><a href='home.php'> Home </a>";
 
      ?>
 
    </div>
- </div>
-
- <div class="col-sm-4">
-   <!-- empty column -->
  </div>
 
 </div>

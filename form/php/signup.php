@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+
   <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -9,105 +11,112 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="../javascript/check.js" charset="utf-8"></script>
     <meta charset="utf-8">
-    <title>Sign Up</title>
+
+    <title></title>
+
   </head>
+
   <body>
-  <div class="container-fluid">
 
-  <div class="form_outer">
+    <?php
 
-      <div class="row">
-        <div class="col-sm-4">
-          <!-- empty column -->
+
+      include 'F:\xampp\htdocs\myphp\Internship\form\php\db1.php';
+
+      //funtion to test input
+      function test_input($data)
+      {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
+
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      //creating a databse for the user
+      $username = test_input($_POST["name"]);
+      $password = md5(test_input($_POST["pass"]));
+      $name = test_input($_POST["name"]);
+      $email = test_input(strtolower($_POST["email"]));
+
+      $query = "INSERT INTO users(username, password, name, email) VALUES ('$username', '$password', '$name', '$email')";
+      if (mysqli_query($conn, $query)) {
+        // echo "<br>Sign Up complete!<br><a href='login.php'>Login</a>";
+        echo "<script>alert('Sign up complete');
+        window.location = 'login.php';</script>";
+      }
+      else {
+        echo "<br>There was some error: " .mysqli_error($conn);
+      }
+        $conn->close();
+      }
+
+     ?>
+
+    <div class="container-fluid">
+
+      <div class="form_outer">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="col-sm-4">
+              <!-- empty space -->
+            </div>
+            <div class="col-sm-4">
+              <div class="form_inner">
+
+                <!-- sign up form -->
+              <form class="form-horizontal" action= "" method="post" name="signup">
+                <fieldset>
+                  <legend align="center"><h2>Sign Up</h2></legend>
+
+                  <!-- name of the user -->
+                  <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Name" required><br>
+                  </div>
+                  <!-- email of the user -->
+                  <div class="form-group">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Email" onblur="checkEmail()" required><span class="error" id="emailE"></span>
+                  </div>
+                  <!-- username -->
+                  <div class="form-group">
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Username" required onblur="checkUsername()"><span class="error" id="usernameE"></span>
+                  </div>
+                  <!-- password -->
+                  <div class="form-group">
+                    <input type="password" name="pass" class="form-control" id="pass" placeholder="Password" onblur="checkPass()" required><span class="error" id="passE"></span>
+                  </div>
+                  <!-- confirm password -->
+                  <div class="form-group">
+                    <input type="password" name="confirm_pass" class="form-control" id="confirm_pass" placeholder="Confirm Password" onblur="confirmPass()" required>
+                  </div>
+
+                  <!-- <div class="form-group">
+                    Upload your image:
+                    <input type="file" name="profile_pic">
+                  </div> -->
+                  <div class="form-group">
+                      <button type="submit" id="signupButton" class="btn btn-primary">Sign Up</button>
+                  </div>
+
+                </fieldset>
+              </form>
+
+              <!-- <button onclick="myFunction()">button</button> -->
+
+            </div>
+            </div>
+            <div class="col-sm-4">
+              <!-- empty space -->
+            </div>
+          </div>
         </div>
 
-        <div class="col-sm-4">
-          <div class="form_inner">
-
-  <?php
-
-  include 'F:\xampp\htdocs\myphp\Internship\form\php\db1.php';
-
-  //funtion to test input
-  function test_input($data)
-  {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
-
-  //creating a databse for the user
-  $username = test_input($_POST["name"]);
-  $password = test_input($_POST["pass"]);
-
-  //uploading profile picture
-  $target_dir = "../profile_pictures/";
-  $target_file = $target_dir . basename($_FILES["profile_pic"]["name"]);
-  $uploadOk = 1;
-  $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-
-  if (isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["profile_pic"]["tmp_name"]);
-    if ($check !== false) {
-      echo "<br>File is being is uploaded";
-      $uploadOk = 1;
-    }
-    else {
-      echo "<br>File is not an image";
-      $uploadOk = 0;
-    }
-  }
-
-  // if (file_exists($target_file)) {
-  //     echo "<br>Sorry, file already exists";
-  //     $uploadOk = 0;
-  // }
-
-  if ($_FILES["profile_pic"]["size"]>500000000) {
-    echo "<br>File size is too large";
-  }
-
-  if ($imageFileType !="jpg" && $imageFileType !="png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-    echo "<br>Sorry, only JPG, JPEG, PNG and GIF files are allowed";
-    $uploadOk = 0;
-  }
-
-  else {
-    $target_file = $target_dir. $username . "." .$imageFileType;
-    if (move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $target_file)) {
-      echo "<br>Profile picture uploaded";
-    }
-    else {
-      echo "<br>Sorry, there was an error uploading your file";
-    }
-  }
-
-  $query = "INSERT INTO users(username, password, pro_pic) VALUES ('$username', '$password', '$target_file')";
-  if (mysqli_query($conn, $query)) {
-    echo "<br>Sign Up complete!";
-  }
-  else {
-    echo "<br>There was some error: " .mysqli_error($conn);
-  }
-    $conn->close();
-  ?>
-
-  <p>
-    <a href="home.php">Login</a>
-  </p>
-
-  </div>
-  </div>
-
-  <div class="col-sm-4">
-  <!-- empty column -->
-  </div>
-
-  </div>
-  </div>
+      </div>
 
     </div>
-      </body>
+
+  </body>
 </html>

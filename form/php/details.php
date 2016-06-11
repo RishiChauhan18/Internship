@@ -15,6 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../../css/navbar-fixed-side.css" rel="stylesheet" />
+    <script src="..\..\javascript\check.js" charset="utf-8"></script>
     <meta charset="utf-8">
     <title> Client Details</title>
   </head>
@@ -27,16 +29,11 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="col-sm-3">
-        <!-- empty column -->
+        <?php include 'F:\xampp\htdocs\myphp\Internship\form\php\menuBar.php'; ?>
       </div>
 
-      <div class="col-sm-6">
+      <div class="col-sm-8">
         <div class="form_inner">
-
-          <div dir="rtl">
-            <span>Welcome <?php echo $_SESSION["username"]; ?></span>
-            <a href="../logout.php"><?php echo " "; ?>Log Out</a>
-          </div>
 
     <?php
 
@@ -44,9 +41,14 @@
     include 'F:\xampp\htdocs\myphp\Internship\form\php\db2.php';
 
     $page = $_REQUEST["page"];
-    $offset = (($page-1)*3);
+    if ($page == 0) {
+      header('Location: ../details.php/?page=1');
+    }
 
-    $select_all = "SELECT * FROM client_info LIMIT 3 OFFSET $offset";
+    $limit = 4;
+    $offset = (($page-1)*$limit);
+
+    $select_all = "SELECT * FROM client_info LIMIT $limit OFFSET $offset";
     $result = mysqli_query($conn, $select_all);
 
     if (mysqli_num_rows($result)>0) {
@@ -60,24 +62,35 @@
       echo "<br>Error: " . $select_all . $conn->error;
     }
 
-    echo "<br><a href='../form.php'> Home </a>";
+    echo "<br><a href='../home.php'> Home </a>";
 
      ?>
 
      <nav align="center">
        <ul class="pagination">
-         <li><a href="../details.php/?page=<?php if (($page-1)<0){echo (1);} else {echo ($page-1);} ?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-         <li class="active"><a href="../details.php/?page=<?php echo (1);?>">1 <span class="sr-only">(current)</span></a></li>
-         <li><a href="../details.php/?page=<?php echo (2);?>">2 <span class="sr-only">(current)</span></a></li>
+
+         <li><a href="../details.php/?page=<?php echo ($page-1);?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+
+         <?php
+
+         $pgNo = 0;
+         $x = ($_SESSION["totalClient"] / $limit);
+         do {
+           echo "<li><a href='../details.php/?page= . $pgNo+1 . '>" .($pgNo+1). "</a></li>";
+           $pgNo++;
+         } while ($pgNo < $x);
+
+         ?>
+
          <li><a href="../details.php/?page=<?php echo ($page+1);?>" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+         <!-- <li class="active"><a href="../details.php/?page=<?php //echo (1);?>">1 <span class="sr-only">(current)</span></a></li>
+         <li><a href="../details.php/?page=<?php //echo (2);?>">2 <span class="sr-only">(current)</span></a></li> -->
+
        </ul>
      </nav>
 
      </div>
    </div>
-     <div class="col-sm-3">
-       <!-- empty column -->
-     </div>
    </div>
  </div>
  </div>

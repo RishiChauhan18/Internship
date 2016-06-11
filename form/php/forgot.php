@@ -10,6 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="../css/navbar-fixed-side.css" rel="stylesheet" />
+    <script src="..\javascript\check.js" charset="utf-8"></script>
     <meta charset="utf-8">
     <title>Forgot Password</title>
   </head>
@@ -21,11 +23,11 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <!-- empty column -->
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-8">
           <div class="form_inner">
 
 <?php
@@ -95,9 +97,6 @@
   </div>
   </div>
 
-  <div class="col-sm-4">
-    <!-- empty column -->
-  </div>
 </div>
 
     </div>

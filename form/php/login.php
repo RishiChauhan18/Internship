@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$_SESSION["login_check"] = 0;
 
  ?>
 
@@ -17,8 +18,8 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!-- self created js file -->
-    <script scr="javascript\check.js"></script>
+    <link href="../css/navbar-fixed-side.css" rel="stylesheet" />
+    <script src="..\javascript\check.js" charset="utf-8"></script>
     <meta charset="utf-8">
 
     <title>Login</title>
@@ -48,7 +49,8 @@ session_start();
 
       //validating entered fields
       $username = test_input($_POST["name"]);
-      $password = test_input($_POST["pass"]);
+      $password = md5(test_input($_POST["pass"]));
+      // $password = md5(test_input($_POST["pass"]));
 
       // query and stuff
       $query = "SELECT * FROM users WHERE username = '$username'";
@@ -59,8 +61,9 @@ session_start();
           if ($row["password"] == $password) {
             // assigning $_SESSION variables for further use
             $_SESSION["username"] = $username;
-            $_SESSION["profile_pic"] = $row["pro_pic"];
+            $_SESSION["profile_pic"] = $row["profile_picture"];
             $_SESSION["login_check"] = 1;
+            $_SESSION["totalClient"] = 0;
             echo "<script>window.location = 'home.php'</script>";
           }
           else {
@@ -102,6 +105,9 @@ session_start();
                   <div class="form-group">
                       <button type="submit" class="btn btn-primary">Log In</button>
                       <a href="forgot.php"><span>Forgot Password</span></a>
+                      <p class="signup">
+                        <span>Don't have an account? <a href="signup.php">Sign Up</a></span>
+                      </p>
                   </div>
 
                 </fieldset>
