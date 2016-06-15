@@ -3,10 +3,6 @@ function activeButton(id) {
  // document.getElementById("homeButton").innerHTML = "hello";
 }
 
-function pagination() {
-  
-}
-
 function confirmPass() {
   if ((document.getElementById("confirm_pass").value != document.getElementById("pass").value) && (document.getElementById("confirm_pass").value != "") && (document.getElementById("pass").value != "")) {
     document.getElementById("signupButton").disabled = true;
@@ -40,6 +36,7 @@ function checkUsername() {
   }
 
   xmlhttp.onreadystatechange = function () {
+    // alert(1);
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       document.getElementById("usernameE").innerHTML = xmlhttp.responseText;
     }
@@ -78,4 +75,32 @@ function validateEmail() {
         document.getElementById("signupButton").disabled = true;
         return false;
     }
+}
+
+function selectState(val) {
+  var x = val.toLowerCase();
+  // alert(x);
+  if (window.XMLHttpRequest) {
+    // for Chrome, Firefox, etc
+    xmlhttp = new XMLHttpRequest();
+    // alert(x);
+  }
+  else {
+    // for Internet Explorer 5 and 6
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    // alert(x);
+  }
+  // alert(xmlhttp.readyState);
+  xmlhttp.onreadystatechange = function () {
+    // alert(xmlhttp.readyState);
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      document.getElementById("sel2").innerHTML = xmlhttp.responseText;
+    }
+  };
+  // alert(x);
+  // alert(xmlhttp.readyState);
+  xmlhttp.open("GET","option.php?q="+x, true);
+  // alert(xmlhttp.readyState);
+  xmlhttp.send();
+  // alert(xmlhttp.readyState);
 }

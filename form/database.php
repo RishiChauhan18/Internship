@@ -7,17 +7,9 @@
  <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="..\css\form.css" media="screen" title="no title" charset="utf-8">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link href="../css/navbar-fixed-side.css" rel="stylesheet" />
-    <script src="..\javascript\check.js" charset="utf-8"></script>
-    <meta charset="utf-8">
+
+    <?php include 'F:\xampp\htdocs\myphp\Internship\form\head.php'; ?>
+    
     <title> Database </title>
   </head>
   <body>
@@ -40,15 +32,15 @@
 
     <?php
 
-    include 'F:\xampp\htdocs\myphp\Internship\form\php\login_check.php';
-    include 'F:\xampp\htdocs\myphp\Internship\form\php\db2.php';
+    include 'F:\xampp\htdocs\myphp\Internship\form\login_check.php';
+    include 'F:\xampp\htdocs\myphp\Internship\form\db2.php';
 
 
     $db = $_REQUEST["db"];
 
     if ($db == 1) {
-      include 'F:\xampp\htdocs\myphp\Internship\form\php\db1.php';
-      include 'F:\xampp\htdocs\myphp\Internship\form\php\upload_picture.php';
+      include 'F:\xampp\htdocs\myphp\Internship\form\db1.php';
+      include 'F:\xampp\htdocs\myphp\Internship\form\upload_picture.php';
 
       $username = $_SESSION["username"];
       // $password = $_POST["password"];
@@ -66,8 +58,6 @@
       else {
         echo "<br>Error: " . $sql_query . $conn->error;
       }
-
-  echo "<br><a href='../home.php'> Home </a>";
     }
 
     if ($db == 2 )
@@ -90,7 +80,7 @@
       $phone_no = test_input($_POST["phone_no"]);
       // $pp_id = mysqli_insert_id($conn);
       $age = test_input($_POST["age"]);
-      $target_dir = "../profile_pictures/";
+      $target_dir = "profile_pictures/";
       $target_file = $target_dir . basename($_FILES["profile_pic"]["name"]);
       $uploadOk = 1;
       $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -149,12 +139,11 @@
           else {
             echo "<br>Error: " . $sql_query . $conn->error;
           }
-
-      echo "<br><a href='home.php'> Home </a>";
-
     }
 
     // $stmt->close();
+
+    echo "<br><a href='../home.php'> Home </a>";
 
     $conn->close();
     ?>

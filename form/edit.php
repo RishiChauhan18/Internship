@@ -7,18 +7,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/form.css" media="screen" title="no title" charset="utf-8">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link href="../css/navbar-fixed-side.css" rel="stylesheet" />
-    <script src="..\javascript\check.js" charset="utf-8"></script>
-    <meta charset="utf-8">
+    <?php include 'F:\xampp\htdocs\myphp\Internship\form\head.php'; ?>
+
     <title> Edit  </title>
   </head>
   <body>
@@ -38,13 +29,13 @@
 
             <div dir="rtl">
               <span>Welcome <?php echo $_SESSION["username"]; ?></span>
-              <a href="../logout.php"><?php echo " "; ?>Log Out</a>
+              <a href="logout.php"><?php echo " "; ?>Log Out</a>
             </div>
 
 <?php
 
-include 'F:\xampp\htdocs\myphp\Internship\form\php\login_check.php';
-include 'F:\xampp\htdocs\myphp\Internship\form\php\db2.php';
+include 'F:\xampp\htdocs\myphp\Internship\form\login_check.php';
+include 'F:\xampp\htdocs\myphp\Internship\form\db2.php';
 
     // validating form
     $name_edit = $phone_no_edit = $id_edit = $profile_pic_edit = $age_edit = $redirect = "";
@@ -67,7 +58,7 @@ include 'F:\xampp\htdocs\myphp\Internship\form\php\db2.php';
       $id_edit = test_input($_REQUEST["id"]);
       // $profile_pic_edit = $_REQUEST["profile_pic"];
 
-      $target_dir = "../profile_pictures/";
+      $target_dir = "profile_pictures/";
       $target_file = $target_dir . basename($_FILES["profile_pic"]["name"]);
       $uploadOk = 1;
       $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -115,7 +106,7 @@ include 'F:\xampp\htdocs\myphp\Internship\form\php\db2.php';
 
   if ($conn->query($sql_query_edit)) {
     echo "<br>Database updated!";
-    echo "<a href='../details.php/?page=1'>Check</a>";
+    echo "<a href='details.php/?page=1'>Check</a>";
   }
   // else {
   //   echo "<br>Error: " . $sql_query_edit . $conn->error;
@@ -137,7 +128,7 @@ include 'F:\xampp\htdocs\myphp\Internship\form\php\db2.php';
     echo "<br>Error: " . $sql_query_display . $conn->error;
   }
 
-  echo "<br><a href='../home.php'> Home </a>";
+  echo "<br><a href='home.php'> Home </a>";
 
     $redirect = "details.php";
 

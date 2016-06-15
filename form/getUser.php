@@ -1,6 +1,6 @@
 <?php
 
-include 'F:\xampp\htdocs\myphp\Internship\form\php\db1.php';
+include 'F:\xampp\htdocs\myphp\Internship\form\db1.php';
 
 $q = $_GET["q"];
 

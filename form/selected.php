@@ -7,18 +7,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="..\css\form.css" media="screen" title="no title" charset="utf-8">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link href="../css/navbar-fixed-side.css" rel="stylesheet" />
-    <script src="..\javascript\check.js" charset="utf-8"></script>
-    <meta charset="utf-8">
+    <?php include 'F:\xampp\htdocs\myphp\Internship\form\head.php'; ?>
+
     <title> Client Details</title>
   </head>
   <body>
@@ -43,8 +34,8 @@
 
     <?php
 
-    include 'F:\xampp\htdocs\myphp\Internship\form\php\login_check.php';
-    include 'F:\xampp\htdocs\myphp\Internship\form\php\db2.php';
+    include 'F:\xampp\htdocs\myphp\Internship\form\login_check.php';
+    include 'F:\xampp\htdocs\myphp\Internship\form\db2.php';
 
     $get_id = $_POST["get_id"];
 

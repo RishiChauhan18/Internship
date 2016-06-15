@@ -1,7 +1,7 @@
 <?php
 
 // uploading profile picture
-$target_dir = "../profile_pictures/";
+$target_dir = "profile_pictures/";
 $target_file = $target_dir . basename($_FILES["profile_pic"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -33,9 +33,10 @@ if ($imageFileType !="jpg" && $imageFileType !="png" && $imageFileType != "jpeg"
 }
 
 else {
-  $target_file = $target_dir. $username . "." .$imageFileType;
+  $target_file = $target_dir. $_SESSION["username"] . "." .$imageFileType;
   if (move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $target_file)) {
     echo "<br>Profile picture uploaded";
+    $_SESSION["profile_pic"] = $target_file;
   }
   else {
     echo "<br>Sorry, there was an error uploading your file";
